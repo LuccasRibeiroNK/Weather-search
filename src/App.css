@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+
+.app {
+    height: 100vh;
+    width: 100vw;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    font-family: "Merriweather Sans", sans-serif;
+    color: white;
+    transition-duration: 1s;
+    overflow: hidden;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: absolute;
+    right: 10%;
+    top: 210px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(1px);
+    overflow: hidden;
+    padding: 3px;
+}
+
+.search-input>input {
+    font-size: 25px;
+    width: 395px;
+    font-size: 40px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    color: white;
+    background: transparent;
+}
+
+.search-input>input::placeholder {
+    color: white;
+}
+
+.search-button {
+    cursor: pointer;
+    transform: scale(1.2);
+    margin-right: 10px;
+}
+
+.search-button:hover {
+    transform: scale(1.4);
+}
+
+.weather-container>h2 {
+    position: absolute;
+    font-size: 64px;
+    left: 73px;
+    top: 700px;
+}
+
+.top-part {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    left: 73px;
+    top: 473px;
+}
+
+.top-part>h1 {
+    font-size: 180px;
+}
+
+.condition-high-low {
+    margin-left: 25px;
+}
+
+.condition-high-low>h1:nth-of-type(1) {
+    font-size: 64px;
+}
+
+.condition-high-low>h1:nth-of-type(2),
+h1:nth-of-type(3) {
+    font-size: 36px;
+}
+
+@media screen and (max-width: 940px) {
+    .weather-container>h1 {
+        font-size: 30px;
+        left: 20px;
+        top: 500px;
+
+    }
+
+    .top-part>h1 {
+        font-size: 130px;
+        left: 0px;
+
+    }
+
+    .weather-container>.top-part>.condition-high-low>.condition {
+        font-size: 40px;
+        left: 100px;
+    }
+
+
+
+}
