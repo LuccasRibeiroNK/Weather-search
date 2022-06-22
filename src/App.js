@@ -26,58 +26,34 @@ function App() {
                 },
                 condition: data.current.condition.text,
             })
-            ).catch(error => console.log(error));
+            ).catch(error => console.log("Error: ", error))
         setPlace('');
     }
-
+    console.log(placeInfo.condition?.toLowerCase());
 
     function tempCondition() {
-        if (placeInfo.condition === 'Sunny') {
-            return "Ensolarado";
+        if (placeInfo.condition?.toLowerCase() === 'clear' || placeInfo.condition?.toLowerCase() === 'sunny') {
+            return "Ensolarado"
         }
-
-        if (placeInfo.condition === "Light rain" || placeInfo.condition === "Light rain shower") {
-            return 'Chuva leve';
+        if (placeInfo.condition?.toLowerCase().includes('cloudy')) {
+            return "Nublado"
         }
-        if (placeInfo.condition === "Overcast") {
-            return 'Nublado';
+        if (placeInfo.condition?.toLowerCase().includes('overcast')) {
+            return "Nublado"
         }
-        if (placeInfo.condition === "Patchy rain possible") {
-            return 'Chuva possível';
+        if (placeInfo.condition?.toLowerCase().includes('rainy')) {
+            return "Chuvoso"
         }
-        if (placeInfo.condition === "Partly cloudy") {
-            return 'Poucas nuvens';
+        if (placeInfo.condition?.toLowerCase().includes('snow')) {
+            return "Neve"
         }
-        if (placeInfo.condition === "Mist") {
-            return 'Nublado';
+        if (placeInfo.condition?.toLowerCase().includes('thunder')) {
+            return "Trovoada"
         }
-        if (placeInfo.condition === "Heavy rain") {
-            return 'Chuva pesada';
-        }
-        if (placeInfo.condition === "Light snow") {
-            return 'Neve leve';
-        }
-        if (placeInfo.condition === "Heavy snow") {
-            return 'Neve pesada';
-        }
-        if (placeInfo.condition === "Light sleet") {
-            return 'Geada leve';
-        }
-        if (placeInfo.condition === "Heavy sleet") {
-            return 'Geada pesada';
-        }
-        if (placeInfo.condition === "Light rain and snow") {
-            return 'Chuva e neve leve';
-        }
-        if (placeInfo.condition === "Heavy rain and snow") {
-            return 'Chuva e neve pesada';
-        }
-        //other conditions
-        else {
-            return placeInfo.condition;
+        if (placeInfo.condition?.toLowerCase().includes('sleet')) {
+            return "Chovendo"
         }
     }
-
 
     return (
 
@@ -112,7 +88,7 @@ function App() {
                 <div className="top-part">
                     <h1>{placeInfo.celsius?.current}°C</h1>
                     <div className="condition-high-low">
-                        <h1 className='condition'>{tempCondition()}</h1>
+                        <h1 className='condition'>{tempCondition() ? tempCondition() : placeInfo.condition}</h1>
                         <h2>min. {placeInfo.celsius?.low}°C</h2>
                         <h2>max. {placeInfo.celsius?.high}°C</h2>
                     </div>
@@ -124,9 +100,6 @@ function App() {
         </div>
     );
 
-
 }
-
-
 
 export default App;
